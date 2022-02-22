@@ -1,0 +1,65 @@
+﻿@model GestionConferences.Models.Entity.Conference
+
+@{
+    ViewBag.Title = "AfficherConference";
+}
+
+<h2>AfficherConference</h2>
+
+<div>
+    <h4>Conference</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DateDebut)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateDebut)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFin)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Personne.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Personne.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salle.Numero)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salle.Numero)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Retourner à la liste", "Index")
+</p>

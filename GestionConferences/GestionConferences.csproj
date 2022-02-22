@@ -263,6 +263,7 @@
     <Content Include="Views\Compte\Connexion.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Conference\Index.cshtml" />
+    <Content Include="Views\Conference\AfficherConference.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

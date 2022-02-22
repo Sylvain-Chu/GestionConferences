@@ -45,7 +45,18 @@ namespace GestionConferences.Models.DAL
         /// <returns>Retourne l'ID de la conférence créée.</returns>
         public int CreerConference(DateTime debut, DateTime fin, string nom, string description, int idSalle, int idIntervenant)
         {
-            throw new NotImplementedException("À compléter");
+            Conference conf = new Conference()
+            {
+                DateDebut = debut,
+                DateFin = fin,
+                Nom = nom,
+                Description = description,
+                IdSalle = idSalle,
+                IdIntervenant = idIntervenant
+            };
+
+            this.context.Conferences.Add(conf);
+            return this.context.SaveChanges();
         }
 
         /// <summary>
@@ -53,7 +64,7 @@ namespace GestionConferences.Models.DAL
         /// </summary>
         public bool ExisteConferenceSalle(DateTime debut, DateTime fin, int idSalle)
         {
-            throw new NotImplementedException("À compléter");
+            return this.context.Conferences.Any(c => c.DateDebut < fin && c.DateFin > debut && c.IdSalle == idSalle);
         }
 
         /// <summary>
@@ -61,7 +72,7 @@ namespace GestionConferences.Models.DAL
         /// </summary>
         public bool ExisteConferenceIntervenant(DateTime debut, DateTime fin, int idIntervenant)
         {
-            throw new NotImplementedException("À compléter");
+            return context.Conferences.Any(c => c.DateDebut < fin && c.DateFin > debut && c.IdIntervenant == idIntervenant);
         }
 
         /// <summary>
