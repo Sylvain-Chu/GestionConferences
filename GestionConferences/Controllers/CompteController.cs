@@ -47,7 +47,7 @@ namespace GestionConferences.Controllers
         public ActionResult Deconnexion()
         {
             IdentitySignout();
-            RedirectToAction("Index", "Conference");
+            return RedirectToAction("Index", "Conference");            
         }
 
         public ActionResult CreerCompte()

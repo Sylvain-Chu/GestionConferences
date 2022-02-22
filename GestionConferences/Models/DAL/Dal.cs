@@ -82,6 +82,8 @@ namespace GestionConferences.Models.DAL
         public IList<Inscription> ListeInscriptions(int idConference)
         {
             throw new NotImplementedException("À compléter");
+
+            //return context.Inscriptions.All(c => c.IdConference == idConference);
         }
 
         /// <summary>

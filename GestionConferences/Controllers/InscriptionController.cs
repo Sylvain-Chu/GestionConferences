@@ -11,20 +11,21 @@ namespace GestionConferences.Controllers
 {
     public class InscriptionController : Controller
     {
-        private readonly IDal dal;
 
-        public InscriptionController(IDal dal)
+        public InscriptionController()
         {
-            this.dal = dal;
         }
 
         public ActionResult Inscrits(int id)
         {
+            Dal dal = new Dal();
             return View(dal.ListeInscriptions(id));
         }
 
         public ActionResult Inscrire(int id)
         {
+            Dal dal = new Dal();
+
             int idPersonne = GetIdPersonne();
 
             // TODO: Tester si la personne actuellement connectée est déjà inscrite à la conférence (id en paramètre).
