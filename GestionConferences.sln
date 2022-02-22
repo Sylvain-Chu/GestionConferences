@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionConferences", "GestionConferences\GestionConferences.csproj", "{51B38367-40A3-4EEF-96F1-02C28D307988}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionConferences.Tests", "GestionConferences.Tests\GestionConferences.Tests.csproj", "{DA281B0C-0485-442B-8614-416B316C8BBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{51B38367-40A3-4EEF-96F1-02C28D307988}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51B38367-40A3-4EEF-96F1-02C28D307988}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51B38367-40A3-4EEF-96F1-02C28D307988}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51B38367-40A3-4EEF-96F1-02C28D307988}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA281B0C-0485-442B-8614-416B316C8BBC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA281B0C-0485-442B-8614-416B316C8BBC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA281B0C-0485-442B-8614-416B316C8BBC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA281B0C-0485-442B-8614-416B316C8BBC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {09F17143-DED7-4D4B-B0BD-FB0FDFCC436A}
+	EndGlobalSection
+EndGlobal

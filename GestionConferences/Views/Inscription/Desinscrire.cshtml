@@ -1,0 +1,29 @@
+﻿@model GestionConferences.Models.Entity.Inscription
+
+@{
+    ViewBag.Title = "Désinscription d'une conférence";
+}
+
+<h2>Désinscription d'une conférence</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>@Html.Raw(ViewBag.nomConference)</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.IdPersonne)
+        @Html.HiddenFor(m => m.IdConference)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Confirmer la désinscription" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

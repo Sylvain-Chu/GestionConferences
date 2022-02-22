@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("Deconnexion", "Compte", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Bonjour " + User.Identity.GetUserName() + " !", "Modifier", "Compte", routeValues: new { area = string.Empty }, htmlAttributes: new { title = "Mon compte" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Déconnexion</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Inscription", "CreerCompte", "Compte", routeValues: new { area = string.Empty }, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Connexion", "Connexion", "Compte", routeValues: new { area = string.Empty }, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
