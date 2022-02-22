@@ -7,43 +7,74 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 
 namespace GestionConferences.Controllers
 {
     public class CompteController : Controller
     {
-        private readonly IDal dal;
 
-        public CompteController(IDal dal)
+        public CompteController()
         {
-            this.dal = dal;
         }
 
         public ActionResult Connexion()
         {
-            throw new NotImplementedException("À compléter");
+            return View();
         }
 
+        [HttpPost]
         public ActionResult Connexion(Personne pPersonne)
         {
-            throw new NotImplementedException("À compléter");
+            Dal dal = new Dal();
+
+            Personne p = dal.AuthentifierPersonne(pPersonne.Email, pPersonne.Password);
+            IdentitySignin(p);
+
+            if (p == null)
+            {
+                ModelState.AddModelError("Password", "Erreur de mot de passe");
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Index", "Conference");
+            }
         }
 
         [HttpPost]
         public ActionResult Deconnexion()
         {
-            throw new NotImplementedException("À compléter");
+            IdentitySignout();
+            RedirectToAction("Index", "Conference");
         }
 
         public ActionResult CreerCompte()
         {
-            throw new NotImplementedException("À compléter");
+            return View();
         }
 
+        [HttpPost]
         public ActionResult CreerCompte(Personne pPersonne)
         {
-            throw new NotImplementedException("À compléter");
+            if (!ModelState.IsValid)
+                return View(pPersonne);
+
+            Dal dal = new Dal();
+
+
+            if (dal.ExistePersonne(pPersonne.Email))
+            {
+                ModelState.AddModelError("Non", "Un Compte a déjà le même mail");
+                return View(pPersonne);
+            }
+
+            dal.CreerPersonne(pPersonne.Email, Crypto.HashPassword(pPersonne.Password), pPersonne.Nom, pPersonne.Prenom);
+
+            IdentitySignin(pPersonne);
+
+            return RedirectToAction("Index", "Conference");
         }
 
         private void IdentitySignin(Personne personne)

@@ -56,7 +56,8 @@ namespace GestionConferences.Models.DAL
             };
 
             this.context.Conferences.Add(conf);
-            return this.context.SaveChanges();
+            this.context.SaveChanges();
+            return conf.Id;
         }
 
         /// <summary>
@@ -135,7 +136,17 @@ namespace GestionConferences.Models.DAL
         /// </summary>
         public Personne AuthentifierPersonne(string email, string password)
         {
-            throw new NotImplementedException("À compléter");
+            Personne pe = this.context.Personnes.FirstOrDefault(p => p.Email == email);
+
+            if (pe != null && Crypto.VerifyHashedPassword(pe.Password, password))
+            {
+                return pe;
+            }
+            else
+            {
+                return null;
+            }
+
         }
 
         /// <summary>
@@ -153,7 +164,17 @@ namespace GestionConferences.Models.DAL
         /// <returns>Retourne l'ID de la personne créée.</returns>
         public int CreerPersonne(string email, string password, string nom, string prenom)
         {
-            throw new NotImplementedException("À compléter");
+            Personne p = new Personne()
+            {
+                Nom = nom,
+                Prenom = prenom,
+                Email = email,
+                Password = password
+            };
+
+            this.context.Personnes.Add(p);
+            this.context.SaveChanges();
+            return p.Id;
         }
     }
 }
